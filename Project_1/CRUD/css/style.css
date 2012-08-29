@@ -1,0 +1,50 @@
+/*
+Zachery Hernandez
+7/28/2012
+Get It Back
+https://github.com/AlucardFair/
+*/
+
+.fieldPresets {
+	font-size: 150%;
+	font-weight: bold;
+	color: rgb(60,109,157);
+	text-shadow: 2px 2px 0 rgba(0,0,0,.6);
+	margin: -.2em;
+	padding: .3em;
+}
+
+.imgSize {
+	width: 40%;
+	margin-left: .5em;
+}
+
+.lgImg {
+	width: 100%;
+	border-radius: 10px;
+}
+
+.iconImg {
+	border-radius: 20px;
+
+}
+
+.indent {
+	text-indent: 40px;
+}
+
+.showRequired {
+	font-weight: bold;
+	color: red;
+	text-shadow: 2px 2px 0 rgba(0,0,0,.6);
+}
+
+.ui-dialog .ui-dialog-contain {
+	margin-top: 0px;
+}
+
+label.error {
+	display: block;
+	margin: 1px;
+	color: #FF0000;
+}

@@ -1,0 +1,509 @@
+<!doctype html>
+<!-- Zachery Hernandez -->
+<!-- 8/30/2012 -->
+<!-- Get It Back -->
+<!-- https://github.com/AlucardFair/AVF/CRUD -->
+<!-- Start of HTML Doc --> 
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Get It Back</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+	<link rel="stylesheet" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css">
+	<link rel="stylesheet" href="css/style.css"/>
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+
+<!--**************************************** Start of Home Page ****************************************-->
+	<div data-role="page" id="home">
+	
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="ui-bar-a">
+			<img src="images/gib-branding.png" alt="Get It Back" class="imgSize" />
+		</div>
+		
+		<!-- Home Content -->
+		<div data-role="content">
+
+			<!-- Call To Action -->
+			<div>
+				<a href="#addItem">
+					<img src="images/gib-cta.png" class="lgImg"/>
+				</a>
+			</div>
+
+			<!-- View Saved Server Data -->
+			<a href="#viewData" id="homeServer" data-role="button" class="viewSave, ui-bar-b">View Loaned</a>
+			
+		</div>
+		
+		<!-- Footer -->
+		<div data-role="footer" data-position="fixed">
+			<!-- Navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-icon="home" class="ui-bar-a">Home</a></li>
+					<li><a href="#about" data-icon="info" data-rel="dialog" data-transition="slidedown" class="ui-bar-b">About</a></li>
+					<li><a href="https://github.com/AlucardFair"data-icon="gear" class="ui-bar-b" data-ajax="false">github</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+<!--**************************************** Start of About Page ****************************************  -->
+	<div data-role="page" id="about">
+	
+		<!-- Header Removed-->
+		
+		<!-- About Content -->
+		<div data-role="content">
+
+			<ul data-role="listview" data-inset="true">
+			
+				<li data-role="listdivider">About...</li>
+				<li>
+					<a href="#aboutApp">
+						<img src="images/about.png" class="iconImg" />
+						<h4>The App</h4>
+						<p><small>Information About Get It Back</small></p>
+					</a>
+				</li>
+			
+				<li>
+					<a href="#underConstruction">
+						<img src="images/coder.png" class="iconImg"/>
+						<h4>The Coder</h4>
+						<p><small>Information About Zachery Hernandez</small></p>
+					</a>
+				</li>
+
+				<li>
+					<a href="#jqmdb">
+						<img src="images/jts-dev.png" class="iconImg"/>
+						<h4>DateBox</h4>
+						<p><small>Attribution for DateBox</small></p>
+					</a>
+				</li>
+			
+			</ul>
+
+			<center>
+				<a href="#" data-role="button" id="addBack" data-icon="arrow-l" data-rel="back" data-direction="reverse" data-inline="true" class="ui-bar-b">Go Back</a>
+			</center>
+
+		</div>
+		
+		<!-- Footer Removed-->
+		
+	</div>
+
+<!--**************************************** Start of About App Page ****************************************  -->
+	<div data-role="page" id="aboutApp">
+	
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="ui-bar-a">
+			<a href="#" id="addBack" data-icon="arrow-l" data-rel="back" data-direction="reverse" class="ui-bar-b">Back</a>
+			<div>
+				<a href="#home">
+					<center>
+						<img src="images/gib-branding.png" alt="Get It Back" class="imgSize" />
+					</center>
+				</a>
+			</div>
+		</div>
+		
+		<!--  About App Content -->
+		<div data-role="content">
+
+			<div>
+				<img src="images/gib-about.png" class="lgImg" />
+			</div>
+
+			<div>
+				<h4>About This App</h4>
+				<p class="indent">
+					This app was built with the intent of helping everyone that loans out their entertainment; Whether it be Games, Movies, Music, Software, we've got you covered. Simply put, you can manage everything from everyone. You can save all of your data from every loan you hand out.
+				</p>
+				<p class="indent">
+					We give you all the tools you will ever need. From Saving the Contact Info of who borrowed and what they borrowed. Collect their email address and phone number. Even leave some notes to help you remember anything else you need to know about the loaned entertainment.
+				</p>
+				<p class="indent">
+					So what are you waiting for? Start loaning out your entertainment and keep track of it. You cannot ask for a better peace of mind than this.
+				</p>
+			</div>
+
+			<a href="#addItem" data-role="button" class="ui-bar-b">Start a Loan Now!</a>
+
+		</div>
+
+		<!-- Footer -->
+		<div data-role="footer" data-position="fixed">
+			<!-- Navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" class="ui-bar-b">Home</a></li>
+					<li><a href="#about" data-icon="info" class="ui-bar-b">About</a></li>
+					<li><a href="https://github.com/AlucardFair" data-icon="gear" class="ui-bar-b" data-ajax="false">github</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+<!--************************************** Start of DateBox Plugin Page **************************************  -->
+	<div data-role="page" id="jqmdb">
+	
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="ui-bar-a">
+			<a href="#" id="addBack" data-icon="arrow-l" data-rel="back" data-direction="reverse" class="ui-bar-b">Back</a>
+			<div>
+				<a href="#home">
+					<center>
+						<img src="images/gib-branding.png" alt="Get It Back" class="imgSize" />
+					</center>
+				</a>
+			</div>
+		</div>
+		
+		<!--  DateBox Content -->
+		<div data-role="content">
+
+			<!-- DateBox Image -->
+			<div>
+				<img src="images/jquery_logo_db.png" class="lgImg" />
+				<p><center><small>A Date and Time Picker plugin for jQueryMobile</small></center></p>
+				<p><center><small>1.0.1 (works with 1.1.0)</small></center></p>
+			</div>
+
+			<!-- DateBox Descriptions -->
+			<div>
+				<h4>About the DateBox Plugin</h4>
+				<p class="indent">This plug in solves an issue inside of the iOS simulator. By using it, it was able to assist me in correcting the date format that jQM uses to validate the input date.</p>
+				<p class="indent">Also, with this plug in, you get nice and nifty calendar dialog. Which is also a plus.</p>
+				<p class="indent">Now, this plugin belongs to it's rightful owner. Should you like to read about this plugin, follow the links below:</p>
+			</div>
+
+			<!-- Display Links -->
+			<div>
+				<div class="ui-grid-b">
+					<center>
+						<div class="ui-block-solo">
+							<a href="http://dev.jtsage.com/jQM-DateBox/" data-role="button" data-mini="true" data-inline="true" class="ui-bar-b" data-ajax="false">JT Sage - jQM DateBox</a>
+						</div>
+					</center>
+
+					<center>
+						<div class="ui-block-solo">
+							<a href="https://github.com/jtsage/jquery-mobile-datebox/blob/master/README.md" data-role="button" data-mini="true" data-inline="true" class="ui-bar-b" data-ajax="false">jQM DateBox Features</a>
+						</div>
+					</center>
+
+					<center>
+						<div class="ui-block-solo">
+							<a href="https://github.com/jtsage/jquery-mobile-datebox/blob/master/LICENSE" data-role="button" data-mini="true" data-inline="true" class="ui-bar-b" data-ajax="false">jQM DateBox License</a>
+						</div>
+					</center>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Footer -->
+		<div data-role="footer" data-position="fixed">
+			<!-- Navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" class="ui-bar-b">Home</a></li>
+					<li><a href="#about" data-icon="info" class="ui-bar-b">About</a></li>
+					<li><a href="https://github.com/AlucardFair" data-icon="gear" class="ui-bar-b" data-ajax="false">github</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+<!--**************************************** Start of Form Page ****************************************-->
+	<div data-role="page" id="addItem">
+	
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="ui-bar-a">
+			<a href="#" id="addBack" data-icon="arrow-l" data-rel="back" data-direction="reverse" class="ui-bar-b">Back</a>
+			<div>
+				<a href="#home">
+					<center>
+						<img src="images/gib-branding.png" alt="Get It Back" class="imgSize" />
+					</center>
+				</a>
+			</div>
+		</div>
+
+		<!-- Form Content -->
+		<div data-role="content">
+
+			<!-- Display Link -->
+			<div id="nav">
+				<div class="ui-grid-a">
+					<center>
+						<div class="ui-block-a">
+							<a href="#viewData" data-role="button" id="showData" data-inline="true" data-mini="true" class="viewSave, ui-bar-b">View Loaned</a>
+						</div>
+					</center>
+
+					<center>
+						<div class="ui-block-b">
+							<a href="#" data-role="button" id="clearData" data-inline="true" data-mini="true" class="ui-bar-b">Clear Loaned</a>
+						</div>
+					</center>
+				</div>
+			</div>
+
+			<!-- Form Started -->
+			<form action="" method="post" id="loanForm" data-inline="true">
+
+				<!-- Set Required Indicator -->
+				<div id="requiredIndicator">
+					<p class="showRequired">* Indicates Required Field</p>
+				</div>
+
+				<!-- Item Infomation -->
+				<div id="itemInformation">
+					<p class="fieldPresets">Item Information</p>
+				</div>
+
+				<!-- Selector for Category -->
+				<div id="category" data-role="fieldcontain">
+					<label for="category">Category: *</label><br />
+					<select name="category" id="category" data-native-menu="false" class="required">
+						<option data-placeholder="true">*Choose One*</option>
+							<option value="Game">Game</option>
+							<option value="Movie">Movie</option>
+							<option value="Music">Music</option>
+							<option value="Software">Software</option>
+							<option value="Other">Other</option>
+					</select>
+				</div>
+
+				<!-- Item Name / Text Field -->
+				<div data-role="fieldcontain">
+					<label for="iName">Item Name: *</label>
+					<input type="text" id="iName" name="iName" class="required" placeholder="Title of Item..." />
+				</div>
+
+				<!-- Valuable / Radio -->
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>Is this item valuable? *</legend>
+						<input type="radio" value="Yes" id="yes" name="valuable" class="required" />
+						<label for="yes">Yes</label>
+						<input type="radio" value="No" id="no" name="valuable" />
+						<label for="no">No</label>
+					</fieldset>
+				</div>
+
+				<!-- Borrowed Date -->
+				<div data-role="fieldcontain">
+					<label for="borrwedDate">Date Borrowed *</label>
+					<input type="date" placeholder="YYYY-MM-DD" id="borrowedDate" name="borrowedDate" data-role="datebox" data-options='{"mode": "calbox", "calTodayButton": true}' data-transition="slideup" data-theme="b" class="required" />
+				</div>
+
+				<!-- Borrower's Information -->
+				<div id="borrowerInfo">
+					<p class="fieldPresets">Borrower's Information</p>
+				</div>
+
+				<!-- Borrowers First Name / Text Field -->
+				<div data-role="fieldcontain">
+					<label for="fName">First Name: *</label>
+					<input type="text" id="fName" name="fName" data-inset="true" class="required" placeholder="First Name" />
+				</div>
+
+				<!-- Borrowers Last Name / Text Field -->
+				<div data-role="fieldcontain">
+					<label for="lName">Last Name: *</label>
+					<input type="text" id="lName" name="lName" data-inset="true" class="required" placeholder="Last Name" />
+				</div>
+
+				<!-- Borrowers Email Address / Text Field -->
+				<div data-role="fieldcontain">
+					<label for="email">Email Address: *</label>
+					<input type="email" id="email" name="email" data-inset="true" class="required" placeholder="example@example.com" />
+				</div>
+
+				<!-- Borrowers Phone Number / Text Field -->
+				<div data-role="fieldcontain">
+					<label for="phone">Phone Number: *</label>
+					<input type="tel" id="phone" name="phone" data-inset="true" class="required" placeholder="123-456-7890" />
+				</div>
+
+				<!-- Additional Info -->
+				<div id="addInfo">
+					<p class="fieldPresets">Additional Information</p>
+				</div>
+
+				<!-- Comments -->
+				<div data-role="fieldcontain">
+					<textarea id="comments" name="comments" placeholder="Additional information added here..."></textarea>
+				</div>
+
+				<!-- Submit(Save) and Reset -->
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<input href="#" type="submit" name="save" id="saveData" value="Save!" data-icon="check" data-iconpos="left" data-inset="true" data-mini="true" class="ui-bar-b" />
+					</div>
+					<div class="ui-block-b">
+						<input type="reset" name="reset" id="reset" value="Reset" data-mini="true" data-inset="true" class="ui-bar-d" />
+					</div>
+				</div>
+
+			</form>
+
+			<!-- Footer -->
+			<div data-role="footer" data-position="fixed">
+				<!-- Navbar -->
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home" class="ui-bar-b">Home</a></li>
+						<li><a href="#about" data-icon="info" data-rel="dialog" class="ui-bar-b">About</a></li>
+						<li><a href="https://github.com/AlucardFair" data-icon="gear" class="ui-bar-b" data-ajax="false">github</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+<!--*************************************** Start of Dialog Alert Page ***************************************-->
+	<div data-role="dialog" id="dialogAlert">
+
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="ui-bar-a">
+			<center>
+				<img src="images/gib-branding.png" alt="Get It Back" class="imgSize" />
+			</center>
+		</div>
+
+		<!-- Dialog Alert Content -->
+		<div data-role="content">
+
+			<div>
+				<ul data-role="listview" id="alert">
+
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Footer Removed-->
+
+	</div>
+
+<!--**************************************** Start of View Data Page ****************************************-->
+	<div data-role="page" id="viewData">
+	
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="ui-bar-a">
+			<a href="#" id="addBack" data-icon="arrow-l" data-rel="back" data-direction="reverse" class="ui-bar-b">Back</a>
+			<div>
+				<a href="#home">
+					<center>
+						<img src="images/gib-branding.png" alt="Get It Back" class="imgSize" />
+					</center>
+				</a>
+			</div>
+		</div>
+		
+		<!-- View Data Content -->
+		<div data-role="content">
+
+			<!-- Quick Move to #addItem -->
+			<div class="ui-block-a">
+				<a href="#addItem" data-role="button" data-inset="true" data-mini="true" class="ui-bar-b">Start New</a>
+			</div>
+
+			<!-- View Data (Dynamic) -->
+			<div data-role="fieldcontain">
+				<ul id="serverItems" data-role="listview">
+					
+				</ul>
+			</div>
+
+		</div>
+		
+		<!-- Footer -->
+		<div data-role="footer" data-position="fixed">
+			<!-- Navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" class="ui-bar-b">Home</a></li>
+					<li><a href="#about" data-icon="info" data-rel="dialog" class="ui-bar-b">About</a></li>
+					<li><a href="https://github.com/AlucardFair"data-icon="gear" class="ui-bar-b" data-ajax="false">github</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+<!--**************************************** Start of Construction Page ****************************************-->
+	<div data-role="page" id="underConstruction">
+		
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="ui-bar-a">
+			<a href="#" id="addBack" data-icon="arrow-l" data-rel="back" data-direction="reverse" class="ui-bar-b">Back</a>
+			<div>
+				<a href="#home">
+					<center>
+						<img src="images/gib-branding.png" alt="Bet It Back" class="imgSize" />
+					</center>
+				</a>
+			</div>
+		</div>
+
+		<!--  Construction Content -->
+		<div data-role="content">
+
+			<img src="images/construction.png" class="lgImg"/>
+
+		</div>
+		
+		<!-- Footer -->
+		<div data-role="footer" data-position="fixed">
+			<!-- Navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" class="ui-bar-b">Home</a></li>
+					<li><a href="#about" data-icon="info" data-rel="dialog" class="ui-bar-b">About</a></li>
+					<li><a href="https://github.com/AlucardFair"data-icon="gear" class="ui-bar-b" data-ajax="false">github</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+	<!-- <script type="text/javascript" src="jquery.couch.js"></script> -->
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
