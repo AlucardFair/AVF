@@ -70,11 +70,12 @@ window.addEventListener("DOMContentLoaded", function() {
         }
     };
                         
-    // Call Switch Case //
-    togglePage("dev");
     // Add Event Listeners for Click Events - Then Run togglePage According to Link Clicked //
     ge('dev').addEventListener("click", togglePage("dev"));
     ge('native').addEventListener("click", togglePage("native"));
     ge('dataApi').addEventListener("click", togglePage("dataApi"));
     ge('research').addEventListener("click", togglePage("research"));
+                        
+    // Call Switch Case //
+    togglePage("dev");
 });
