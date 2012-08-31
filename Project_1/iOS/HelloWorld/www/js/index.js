@@ -28,13 +28,14 @@ window.addEventListener("DOMContentLoaded", function() {
         return elementID;
     };
                         
+    // Hide All Divs //
+    ge('dev-content').style.display = "none";
+    ge('native-content').style.display = "none";
+    ge('dataApi-content').style.display = "none";
+    ge('research-content').style.display = "none";
+                        
     // Switch Case to Show and Hide Divs //
     function togglePage(page){
-        // Hide All Divs //
-        ge('dev-content').style.display = "none";
-        ge('native-content').style.display = "none";
-        ge('dataApi-content').style.display = "none";
-        ge('research-content').style.display = "none";
         switch(page){
             // Show Only #dev-content //
             case "dev":
@@ -70,11 +71,15 @@ window.addEventListener("DOMContentLoaded", function() {
         }
     };
                         
-    // Add Event Listeners for Click Events - Then Run togglePage According to Link Clicked //
-    ge('dev').addEventListener("click", togglePage("dev"));
-    ge('native').addEventListener("click", togglePage("native"));
-    ge('dataApi').addEventListener("click", togglePage("dataApi"));
-    ge('research').addEventListener("click", togglePage("research"));
+    // Add Event Listeners for Click Events - Then Run togglePage() According to Link Clicked //
+    var displayDev = ge('dev');
+    displayDev.addEventListener("click", togglePage("dev"));
+    var displayNative = ge('native');
+    displayNative.addEventListener("click", togglePage("native"));
+    var displayDataApi = ge('dataApi');
+    displayDataApi.addEventListener("click", togglePage("dataApi"));
+    var displayResearch = ge('research');
+    displayResearch.addEventListener("click", togglePage("research"));
                         
     // Call Switch Case //
     togglePage("dev");
