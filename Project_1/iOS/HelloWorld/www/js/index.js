@@ -21,6 +21,7 @@ var app = {
 
 // Wait until DOM is ready //
 window.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM Ready");
     
     // getElementById function //
     function ge(x) {
@@ -73,13 +74,21 @@ window.addEventListener("DOMContentLoaded", function() {
                         
     // Add Event Listeners for Click Events - Then Run togglePage() According to Link Clicked //
     var displayDev = ge('dev');
-    displayDev.addEventListener("click", togglePage("dev"));
+    displayDev.addEventListener("click", function() {
+        togglePage("dev")
+    });
     var displayNative = ge('native');
-    displayNative.addEventListener("click", togglePage("native"));
+    displayNative.addEventListener("click", function() {
+        togglePage("native")
+    });
     var displayDataApi = ge('dataApi');
-    displayDataApi.addEventListener("click", togglePage("dataApi"));
+    displayDataApi.addEventListener("click", function () {
+        togglePage("dataApi")
+    });
     var displayResearch = ge('research');
-    displayResearch.addEventListener("click", togglePage("research"));
+    displayResearch.addEventListener("click", function() {
+        togglePage("research")
+    });
                         
     // Call Switch Case //
     togglePage("dev");
