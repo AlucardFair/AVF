@@ -23,7 +23,10 @@
 	<key>BackupWebStorage</key>
 	<true/>
 	<key>ExternalHosts</key>
-	<array/>
+	<array>
+		<string>*.http://alucardfair.github.com/AVF/Project_1/CRUD/index.html</string>
+		<string>*.http://github.com/AlucardFair/AVF/</string>
+	</array>
 	<key>Plugins</key>
 	<dict>
 		<key>Device</key>
