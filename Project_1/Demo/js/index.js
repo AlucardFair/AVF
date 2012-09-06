@@ -34,6 +34,7 @@ window.addEventListener("DOMContentLoaded", function() {
     ge('native-content').style.display = "none";
     ge('dataApi-content').style.display = "none";
     ge('research-content').style.display = "none";
+    ge('video-content').style.display = "none";
                         
     // Switch Case to Show and Hide Divs //
     function togglePage(page){
@@ -44,6 +45,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('native-content').style.display = "none";
                 ge('dataApi-content').style.display = "none";
                 ge('research-content').style.display = "none";
+                ge('video-content').style.display = "none";
                 break;
             //Show Only #native-content //
             case "native":
@@ -51,6 +53,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('native-content').style.display = "block";
                 ge('dataApi-content').style.display = "none";
                 ge('research-content').style.display = "none";
+                ge('video-content').style.display = "none";
                 break;
             // Show Only #dataApi-Content //
             case "dataApi":
@@ -58,6 +61,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('native-content').style.display = "none";
                 ge('dataApi-content').style.display = "block";
                 ge('research-content').style.display = "none";
+                ge('video-content').style.display = "none";
                 break;
             // Show Only #research-content //
             case "research":
@@ -65,6 +69,15 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('native-content').style.display = "none";
                 ge('dataApi-content').style.display = "none";
                 ge('research-content').style.display = "block";
+                ge('video-content').style.display = "none";
+                break;
+            // Show Only #video-content //
+            case "video":
+                ge('dev-content').style.display = "none";
+                ge('native-content').style.display = "none";
+                ge('dataApi-content').style.display = "none";
+                ge('research-content').style.display = "none";
+                ge('video-content').style.display = "block";
                 break;
             default:
                 return false;
@@ -88,6 +101,10 @@ window.addEventListener("DOMContentLoaded", function() {
     var displayResearch = ge('research');
     displayResearch.addEventListener("click", function() {
         togglePage("research")
+    });
+    var displayVideo = ge('videoView');
+    displayVideo.addEventListener("click", function() {
+        togglePage("video")
     });
                         
     // Call Switch Case //
