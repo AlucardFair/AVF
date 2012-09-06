@@ -24,8 +24,7 @@
 	<true/>
 	<key>ExternalHosts</key>
 	<array>
-		<string>*.http://alucardfair.github.com/AVF/Project_1/CRUD/index.html</string>
-		<string>*.http://github.com/AlucardFair/AVF/</string>
+		<string>*.github.com</string>
 	</array>
 	<key>Plugins</key>
 	<dict>
