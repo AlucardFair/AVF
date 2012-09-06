@@ -1,3 +1,5 @@
+//*********************************** JavaScript / Cordova **********************************//
+
 var app = {
     initialize: function() {
         this.bind();
@@ -18,6 +20,8 @@ var app = {
         completeElem.className = completeElem.className.split('hide').join('');
     }
 };
+
+//*********************************** Custom JavaScript **********************************//
 
 // Wait until DOM is ready //
 window.addEventListener("DOMContentLoaded", function() {
@@ -110,3 +114,18 @@ window.addEventListener("DOMContentLoaded", function() {
     // Call Switch Case //
     togglePage("dev");
 });
+
+//*********************************** Device Information / Cordova **********************************//
+
+// Wait for Cordova to load before loading any methods for Cordova
+document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    function onDeviceReady() {
+        alert('Device Name: '     + device.name      + '\n' +
+              'Device Cordova: '  + device.cordova   + '\n' +
+              'Device Platform: ' + device.platform  + '\n' +
+              'Device UUID: '     + device.uuid      + '\n' +
+              'Device Version: '  + device.version   + '\n'
+        );
+};
