@@ -122,10 +122,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     function onDeviceReady() {
-        alert('Device Name: '     + device.name      + '\n' +
-              'Device Cordova: '  + device.cordova   + '\n' +
-              'Device Platform: ' + device.platform  + '\n' +
-              'Device UUID: '     + device.uuid      + '\n' +
-              'Device Version: '  + device.version   + '\n'
-        );
-};
+        var showDevice = document.getElementById('deviceInfo');
+        showDevice.addEventListener("click", onClick, false);
+        function onClick() {
+            alert('Device Name: '     + device.name      + '\n' +
+                  'Device Cordova: '  + device.cordova   + '\n' +
+                  'Device Platform: ' + device.platform  + '\n' +
+                  'Device UUID: '     + device.uuid      + '\n' +
+                  'Device Version: '  + device.version   + '\n'
+                  );
+        };
+    };
