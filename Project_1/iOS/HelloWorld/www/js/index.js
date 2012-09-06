@@ -117,19 +117,46 @@ window.addEventListener("DOMContentLoaded", function() {
 
 //*********************************** Device Information / Cordova **********************************//
 
-// Wait for Cordova to load before loading any methods for Cordova
+// Wait for Cordova to load before loading any methods for Cordova //
 document.addEventListener("deviceready", onDeviceReady, false);
 
-    // Cordova is ready
+    // Cordova is ready, start loading the method //
     function onDeviceReady() {
+        
+        // Call method to check the connection //
+        checkConnection();
+        
+        // Grab the ID's and prep for (addEventListener) //
         var showDevice = document.getElementById('deviceInfo');
-        showDevice.addEventListener("click", onClick, false);
-        function onClick() {
+        var showNetwork = document.getElementById('networkInfo');
+        
+        // Add a Click Event to the selected ID's //
+        showDevice.addEventListener("click", onClickDevice, false);
+        
+        // When #deviceInfo is clicked, run method to alert the user //
+        function onClickDevice() {
+            // User is alerted with the device information //
             alert('Device Name: '     + device.name      + '\n' +
                   'Device Cordova: '  + device.cordova   + '\n' +
                   'Device Platform: ' + device.platform  + '\n' +
                   'Device UUID: '     + device.uuid      + '\n' +
                   'Device Version: '  + device.version   + '\n'
                   );
+        };
+        // When networkInfo is clicked, run method to alert the user //
+        function checkConnection() {
+            var networkState = navigator.network.connection.type;
+            
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.NONE]     = 'No network connection';
+            
+            // User is alert with network information //
+            alert('Connection type: ' + states[networkState]);
         };
     };
