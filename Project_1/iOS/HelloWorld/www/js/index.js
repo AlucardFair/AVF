@@ -123,15 +123,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
     // Cordova is ready, start loading the method //
     function onDeviceReady() {
         
-        // Call method to check the connection //
-        checkConnection();
-        
         // Grab the ID's and prep for (addEventListener) //
         var showDevice = document.getElementById('deviceInfo');
         var showNetwork = document.getElementById('networkInfo');
         
         // Add a Click Event to the selected ID's //
         showDevice.addEventListener("click", onClickDevice, false);
+        showNetwork.addEventListener("click", checkConnection, false);
         
         // When #deviceInfo is clicked, run method to alert the user //
         function onClickDevice() {
