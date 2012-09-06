@@ -124,23 +124,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         
         // Grab the ID's and prep for (addEventListener) //
-        var showDevice = document.getElementById('deviceInfo');
         var showNetwork = document.getElementById('networkInfo');
+        var showDevice = document.getElementById('deviceInfo');
         
         // Add a Click Event to the selected ID's //
-        showDevice.addEventListener("click", onClickDevice, false);
         showNetwork.addEventListener("click", checkConnection, false);
+        showDevice.addEventListener("click", onClickDevice, false);
         
-        // When #deviceInfo is clicked, run method to alert the user //
-        function onClickDevice() {
-            // User is alerted with the device information //
-            alert('Device Name: '     + device.name      + '\n' +
-                  'Device Cordova: '  + device.cordova   + '\n' +
-                  'Device Platform: ' + device.platform  + '\n' +
-                  'Device UUID: '     + device.uuid      + '\n' +
-                  'Device Version: '  + device.version   + '\n'
-                  );
-        };
         // When networkInfo is clicked, run method to alert the user //
         function checkConnection() {
             var networkState = navigator.network.connection.type;
@@ -156,5 +146,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
             
             // User is alert with network information //
             alert('Connection type: ' + states[networkState]);
+        };
+
+        
+        // When #deviceInfo is clicked, run method to alert the user //
+        function onClickDevice() {
+            // User is alerted with the device information //
+            alert('Device Name: '     + device.name      + '\n' +
+                  'Device Cordova: '  + device.cordova   + '\n' +
+                  'Device Platform: ' + device.platform  + '\n' +
+                  'Device UUID: '     + device.uuid      + '\n' +
+                  'Device Version: '  + device.version   + '\n'
+                  );
         };
     };
