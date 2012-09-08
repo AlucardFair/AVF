@@ -19,6 +19,8 @@ var app = {
     }
 };
 
+//*********************************** Custom JavaScript **********************************//
+
 // Wait until DOM is ready //
 window.addEventListener("DOMContentLoaded", function() {
     console.log("DOM Ready");
