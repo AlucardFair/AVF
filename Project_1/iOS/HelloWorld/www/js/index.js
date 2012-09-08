@@ -123,13 +123,63 @@ document.addEventListener("deviceready", onDeviceReady, false);
     // Cordova is ready, start loading the method //
     function onDeviceReady() {
         
+        // Variables //
+        var pictureSource;   // picture source
+        var destinationType; // sets the format of returned value
+        
+        // Load immediately when device is ready //
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        
         // Grab the ID's and prep for (addEventListener) //
+        var openCamera = document.getElementById('openCamera');
         var showNetwork = document.getElementById('networkInfo');
         var showDevice = document.getElementById('deviceInfo');
         
         // Add a Click Event to the selected ID's //
         showNetwork.addEventListener("click", checkConnection, false);
         showDevice.addEventListener("click", onClickDevice, false);
+        openCamera.addEventListener("click", capturePhoto, false);
+        
+        function onPhotoDataSuccess(imageData) {
+            // Uncomment to view the base64 encoded image data
+            // console.log(imageData);
+            
+            // Get image handle
+            var smallImage = document.getElementById('smallImage');
+            
+            // Unhide image elements
+            smallImage.style.display = 'block';
+            
+            // Show the captured photo
+            // The inline CSS rules are used to resize the image
+            smallImage.src = "data:image/jpeg;base64," + imageData;
+        };
+        
+        function onPhotoURISuccess(imageURI) {
+            // Uncomment to view the image file URI
+            // console.log(imageURI);
+            
+            // Get image handle
+            //
+            var largeImage = document.getElementById('largeImage');
+            
+            // Unhide image elements
+            //
+            largeImage.style.display = 'block';
+            
+            // Show the captured photo
+            // The inline CSS rules are used to resize the image
+            //
+            largeImage.src = imageURI;
+        };
+        
+        // When openCamera is clicked, run method to open the native (default) camera //
+        function capturePhoto() {
+            // Take picture using device camera and retrieve image as base64-encoded string
+            navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+                destinationType: destinationType.DATA_URL });
+        };
         
         // When networkInfo is clicked, run method to alert the user //
         function checkConnection() {
@@ -158,5 +208,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
                   'Device UUID: '     + device.uuid      + '\n' +
                   'Device Version: '  + device.version   + '\n'
                   );
+        };
+        
+        function onFail(message) {
+            alert('Failed because: ' + message);
         };
     };
