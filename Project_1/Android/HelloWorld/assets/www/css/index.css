@@ -181,6 +181,14 @@ ul#research-content li type[button] {
     font-size: 18px;
 }
 
+/********************************* Video Content *********************************/
+
+ul#video-content li {
+    list-style-type: none;
+    padding: 2%;
+}
+
+
 /********************************* App (Set by Cordova) *********************************/
 
 .app {
