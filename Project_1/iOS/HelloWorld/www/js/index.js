@@ -134,13 +134,16 @@ document.addEventListener("deviceready", onDeviceReady, false);
         // Grab the ID's and prep for (addEventListener) //
         var openCamera = document.getElementById('openCamera');
         var showNetwork = document.getElementById('networkInfo');
+        var contacts = document.getElementById('contacts');
         var showDevice = document.getElementById('deviceInfo');
         
         // Add a Click Event to the selected ID's //
         showNetwork.addEventListener("click", checkConnection, false);
         showDevice.addEventListener("click", onClickDevice, false);
         openCamera.addEventListener("click", capturePhoto, false);
+        contacts.addEventListener("click", startContacts, false);
         
+        // Start Camera Method //
         function onPhotoDataSuccess(imageData) {
             // Uncomment to view the base64 encoded image data
             // console.log(imageData);
@@ -179,8 +182,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
             // Take picture using device camera and retrieve image as base64-encoded string
             navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
                 destinationType: destinationType.DATA_URL });
-        };
+        }; // End Camera Method //
         
+        // Start Network Method //
         // When networkInfo is clicked, run method to alert the user //
         function checkConnection() {
             var networkState = navigator.network.connection.type;
@@ -196,9 +200,44 @@ document.addEventListener("deviceready", onDeviceReady, false);
             
             // User is alert with network information //
             alert('Connection type: ' + states[networkState]);
-        };
-
+        }; // End Network Method //
         
+        // Start Contacts Method //
+        // When #contacts is clicked, find all available contacts //
+        function startContacts() {
+            // find all contacts
+            var options = new ContactFindOptions();
+            options.filter="";
+            var filter = ["displayName","addresses"];
+            navigator.contacts.find(filter, onSuccess, onError, options);
+        };
+        
+        // onSuccess: Get a snapshot of the current contacts
+        function onSuccess(contacts) {
+            // Unhide #contactList //
+            document.getElementById('contactList').style.display = "block";
+            // display the address information for all contacts
+            for (var i=0; i<contacts.length; i++) {
+                for (var j=0; j<contacts[i].addresses.length; j++) {
+                    document.getElementById('contactList').innerHTML =
+                        "Name: " + contacts[i].displayName + "</br>" +
+                        "Type: " + contacts[i].addresses[j].type + "</br>" +
+                        "Street Address: "  + contacts[i].addresses[j].streetAddress + "</br>" +
+                        "Locality: "  + contacts[i].addresses[j].locality + "</br>" +
+                        "Region: "  + contacts[i].addresses[j].region + "</br>" +
+                        "Postal Code: "  + contacts[i].addresses[j].postalCode + "</br>" +
+                        "Country: "  + contacts[i].addresses[j].country
+                    ;
+                }
+            }
+        };
+        
+        // onError: Failed to get the contacts
+        function onError(contactError) {
+            alert('onError!');
+        }; // End Contactos Method //
+        
+        // Start Device Method //
         // When #deviceInfo is clicked, run method to alert the user //
         function onClickDevice() {
             // User is alerted with the device information //
@@ -212,5 +251,5 @@ document.addEventListener("deviceready", onDeviceReady, false);
         
         function onFail(message) {
             alert('Failed because: ' + message);
-        };
+        }; // End Device Method //
     };
