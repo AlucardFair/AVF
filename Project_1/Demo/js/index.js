@@ -46,6 +46,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('dev-content').style.display = "block";
                 ge('native-content').style.display = "none";
                 ge('dataApi-content').style.display = "none";
+                ge('dataView').style.display = "none";
                 ge('research-content').style.display = "none";
                 ge('video-content').style.display = "none";
                 break;
@@ -54,6 +55,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('dev-content').style.display = "none";
                 ge('native-content').style.display = "block";
                 ge('dataApi-content').style.display = "none";
+                ge('dataView').style.display = "none";
                 ge('research-content').style.display = "none";
                 ge('video-content').style.display = "none";
                 break;
@@ -62,6 +64,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('dev-content').style.display = "none";
                 ge('native-content').style.display = "none";
                 ge('dataApi-content').style.display = "block";
+                ge('dataView').style.display = "block";
                 ge('research-content').style.display = "none";
                 ge('video-content').style.display = "none";
                 break;
@@ -70,6 +73,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('dev-content').style.display = "none";
                 ge('native-content').style.display = "none";
                 ge('dataApi-content').style.display = "none";
+                ge('dataView').style.display = "none";
                 ge('research-content').style.display = "block";
                 ge('video-content').style.display = "none";
                 break;
@@ -78,6 +82,7 @@ window.addEventListener("DOMContentLoaded", function() {
                 ge('dev-content').style.display = "none";
                 ge('native-content').style.display = "none";
                 ge('dataApi-content').style.display = "none";
+                ge('dataView').style.display = "none";
                 ge('research-content').style.display = "none";
                 ge('video-content').style.display = "block";
                 break;
@@ -86,6 +91,38 @@ window.addEventListener("DOMContentLoaded", function() {
                         
         }
     };
+
+    // Twitter Feed Using jQuery //
+    // Load JSONp Data //
+    $('#twitterButton').on("click", function(){
+    console.log('#twitterButton');
+        $('#dataView').empty();
+        $.ajax({
+            url: 'http://search.twitter.com/search.json?q=%40fullsail',
+            type: 'GET',
+            dataType: 'jsonp',
+            success: function(data){
+            console.log(data);
+            alert("This only took " + data.completed_in + " seconds.");
+            $("<h2>").text("Twitter Results for @FullSail").appendTo("#dataView");
+                for (var i=0, j=data.results.length; i<j; i++){
+                    var dr = data.results[i];
+                    $("<img />").attr({
+                        style: 'border-radius:6px;',
+                        src: dr.profile_image_url
+                    }).appendTo("#dataView");
+                    $(''+
+                        '<h2>'+ dr.from_user +'</h2>'+
+                        '<p>'+ dr.text +'</p>'+
+                        '<p>'+ dr.created_at +'</p>'
+                    ).appendTo('#dataView');
+                };
+            },
+            error: function(error){
+                console.log(error);
+            } 
+        });
+    });
                         
     // Add Event Listeners for Click Events - Then Run togglePage() According to Link Clicked //
     var displayDev = ge('dev');

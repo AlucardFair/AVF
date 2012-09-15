@@ -121,7 +121,7 @@ ul#native-content li a {
 
 /********************************* Data API Content *********************************/
 
-ul#dataApi-content li#weatherView {
+ul#dataApi-content li#twitterView {
     margin-top: 2.75%;
     padding-left: 2%;
     list-style-type: none;
@@ -136,12 +136,12 @@ ul#dataApi-content li#otherView {
     bottom: -2%;
 }
 
-ul#dataApi-content li p.weather {
+ul#dataApi-content li p.twitter {
     font-size: 20px;
     text-align: center;
 }
 
-#weatherData {
+#twitterData {
     margin-left: 3%;
     border: solid 5px;
     border-color: rgb(44,44,44);
