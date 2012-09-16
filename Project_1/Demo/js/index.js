@@ -120,6 +120,42 @@ window.addEventListener("DOMContentLoaded", function() {
             },
             error: function(error){
                 console.log(error);
+                alert("Please try again.\n" + error);
+            } 
+        });
+    });
+
+    // Khan Academy Using jQuery //
+    // Load JSONp Data //
+    $('#khanButton').on("click", function(){
+    console.log('#khanButton');
+        $('#dataView').empty();
+        $.ajax({
+            url: 'http://www.khanacademy.org/api/v1/playlists',
+            type: 'GET',
+            dataType: 'jsonp',
+            success: function(data){
+            console.log(data);
+            alert("Here comes the data from Khan Academy.");
+            $("<h2>").text("Khan Academy Playlists").appendTo("#dataView");
+                for (var i=0, j=data.length; i<j; i++){
+                    var dr = data[i];
+                    $("<img />").attr({
+                        style: 'border-radius:6px;',
+                        src: dr.profile_image_url
+                    }).appendTo("#dataView");
+                    $('<a>'+
+                        '<h2>'+ dr.community_questions_title +'</h2>'+
+                        '<p>'+ dr.description +'</p>'+
+                        '<p>'+ dr.backup_timestamp +'</p>'+
+                        '<small>'+ "Tags" +'</small>'+
+                        '<p>'+ dr.tags +'</p>'
+                    ).attr("href", "http://www.khanacademy.com" + dr.topic_page_url).appendTo('#dataView');
+                };
+            },
+            error: function(error){
+                console.log(error);
+                alert("Please try again.\n" + error);
             } 
         });
     });

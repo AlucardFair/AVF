@@ -129,7 +129,7 @@ ul#dataApi-content li#twitterView {
     float: left;
 }
 
-ul#dataApi-content li#otherView {
+ul#dataApi-content li#khanView {
     padding-right: 2%;
     list-style-type: none;
     text-align: center;
@@ -149,12 +149,12 @@ ul#dataApi-content li p.twitter {
     position: relative;
 }
 
-ul#dataApi-content li p.unknown {
+ul#dataApi-content li p.khan {
     font-size: 20px;
     text-align: center;
 }
 
-#unknownData {
+#khanData {
     margin-right: 3%;
     border: solid 5px;
     border-color: rgb(44,44,44);
