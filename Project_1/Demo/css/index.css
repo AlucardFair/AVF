@@ -15,7 +15,6 @@ body {
     text-transform:uppercase;
     vertical-align:middle;
 }
-
 /********************************* Background Image *********************************/
 
 .bg {
@@ -112,6 +111,24 @@ ul#native-content li a {
     float: left;
 }
 
+.disabled {
+    width: 15%;
+    border: solid 5px;
+    border-color: rgb(44,44,44);
+    border-radius: 15px 0 15px 0;
+    position: relative;
+    float: left;
+    opacity: 0.4;
+}
+
+.disabledText {
+    margin-left: 20%;
+    font-size: 24px;
+    text-align: left;
+    position: relative;
+    opacity: 0.4;
+}
+
 .alignment {
     margin-left: 20%;
     font-size: 24px;
@@ -144,7 +161,7 @@ ul#dataApi-content li p.twitter {
 #twitterData {
     margin-left: 3%;
     border: solid 5px;
-    border-color: rgb(44,44,44);
+    border-color: rgb(144,144,144);
     border-radius: 15px 0 15px 0;
     position: relative;
 }
@@ -157,7 +174,7 @@ ul#dataApi-content li p.khan {
 #khanData {
     margin-right: 3%;
     border: solid 5px;
-    border-color: rgb(44,44,44);
+    border-color: rgb(144,144,144);
     border-radius: 15px 0 15px 0;
     position: relative;
 }
